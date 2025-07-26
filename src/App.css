@@ -1,0 +1,40 @@
+/* src/App.css */
+
+/* Keep the main container centered */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* We can add a simple style for our future form */
+.journal-form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* This will space out our text boxes nicely */
+  text-align: left; /* Align text inside the form to the left */
+}
+
+.journal-form label {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.journal-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-family: inherit;
+  background-color: #1a1a1a; /* Match the button style */
+  transition: border-color 0.25s;
+}
+
+.journal-form textarea:focus {
+  outline: 4px auto -webkit-focus-ring-color;
+  border-color: #646cff;
+}
