@@ -22,15 +22,21 @@
   font-size: 1.1em;
 }
 
+/* src/App.css */
+
 .journal-form textarea {
   width: 100%;
   min-height: 100px;
   padding: 0.8em 1em;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #dcdcdc; /* A soft grey border */
   font-size: 1em;
   font-family: inherit;
-  background-color: #1a1a1a; /* Match the button style */
+  
+  /* --- NEW COLORS --- */
+  background-color: #f9f9f9; /* A very light grey, almost white */
+  color: #213547; /* The default dark text color */
+  
   transition: border-color 0.25s;
 }
 
