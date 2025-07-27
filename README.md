@@ -1,10 +1,16 @@
-# A Personal Journaling & Flourishing App
+# Journal App: N=1 Research to investigate correlations between Journaling and Psychological Well Being over time
 
-This project is a full-stack web application designed for a personalized, mixed-methods N=1 study. It combines a qualitative daily journal with validated psychometric scales to track and analyze the drivers of personal well-being, meaning, and authenticity.
+This is a full-stack web application I designed to track my personal psychological well-being scores and how it correlates with journaling, it is essentially a mixed-methods N=1 study. It combines qualitative journal reflection entries with quantitative, validated psychological scales, e.g: Flourishing Scale (Diener et al., 2010) to track and analyse the drivers of personal well-being.
+
+<a href="[View Live Application](https://6885ec796d69eab0ccece44d--glowing-dolphin-ed108f.netlify.app/)" target="_blank" rel="noopener noreferrer"></a>
+
+Feel free to test it out with these credentials:
+
+Email: testuser@gmail.com
+<br>
+Password: journalapptest
 
 ## Core Features & Methodology
-
-This application was built to facilitate a structured, single-case experimental design to test the impact of a daily journaling intervention on psychological flourishing.
 
 ### 1. Journal
 A daily journaling prompt with four open-ended questions designed to foster self-reflection and narrative coherence.
@@ -41,7 +47,7 @@ This project is built with a modern, secure, and scalable full-stack architectur
 *   **Authentication:** **Supabase Auth** for secure user login.
 *   **Security:** **Row Level Security (RLS)** is enabled on all tables, with policies that ensure users can only ever access their own data.
 
-### Data & Analysis
-*   The application saves qualitative (journal text) and quantitative (scale scores) data to a decoupled, relational database schema.
-*   The data is designed to be analyzed in a separate environment (e.g., a Python Jupyter Notebook) to explore the relationship between the daily intervention and the flourishing outcomes over time.
+### Future Improvements
+*   To include data visualisation of well-being scores
+*   To include data insights of journal entries and well-being scores
 
