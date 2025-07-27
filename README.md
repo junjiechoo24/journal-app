@@ -2,13 +2,6 @@
 
 This project is a full-stack web application designed for a personalized, mixed-methods N=1 study. It combines a qualitative daily journal with validated psychometric scales to track and analyze the drivers of personal well-being, meaning, and authenticity.
 
----
-
-
-![Screenshot of the Login Page](https://github.com/user-attachments/assets/47767ed4-5b70-4166-97b6-026a91baf889)
-
----
-
 ## Core Features & Methodology
 
 This application was built to facilitate a structured, single-case experimental design to test the impact of a daily journaling intervention on psychological flourishing.
