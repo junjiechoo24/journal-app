@@ -1,7 +1,8 @@
 // src/FlourishingScalePage.jsx
-import { useState } from 'react'; // Import useState
-import { supabase } from './supabaseClient'; // Import Supabase
+import { useState } from 'react';
+import { supabase } from './supabaseClient';
 import LikertQuestion from './LikertQuestion';
+import './App.css'; // Reusing some global styles
 
 function FlourishingScalePage() {
   const questions = [
@@ -15,13 +16,13 @@ function FlourishingScalePage() {
     "People respect me."
   ];
 
-  // Step 1: Use a single state object to hold all 8 answers
+  // Initialize the state for all 8 questions to null
   const [scores, setScores] = useState({
-    q1: 4, q2: 4, q3: 4, q4: 4, q5: 4, q6: 4, q7: 4, q8: 4,
+    q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null,
   });
   const [loading, setLoading] = useState(false);
 
-  // A function to update a single question's score
+  // This function updates the score for a specific question
   const handleScoreChange = (questionIndex, newScore) => {
     setScores(prevScores => ({
       ...prevScores,
@@ -29,20 +30,31 @@ function FlourishingScalePage() {
     }));
   };
 
-  // Step 2: Create the submit handler
+  // This function runs when the user clicks the submit button
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Check if any of the scores are still null
+    if (Object.values(scores).some(score => score === null)) {
+      alert('Please answer all 8 questions before submitting.');
+      return; // Stop the function if the form is incomplete
+    }
+
     setLoading(true);
 
     const { data, error } = await supabase
       .from('weekly_fs_scores') // Saving to the correct table
-      .insert([scores]); // We can insert the whole scores object directly!
+      .insert([scores]); // Supabase can take the whole object if keys match columns
 
     if (error) {
       console.error('Error saving weekly score:', error);
-      alert('Error: Could not save your score.');
+      alert('Error: Could not save your score. Check the console.');
     } else {
       alert('Your weekly flourishing score has been saved!');
+      // Optionally reset the form
+      setScores({
+        q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null,
+      });
     }
     setLoading(false);
   };
@@ -51,9 +63,9 @@ function FlourishingScalePage() {
     <div>
       <h1 className="App-header">Flourishing Scale (FS)</h1>
       <p className="read-the-docs">
-        Indicate your agreement with each item below (1=Strongly Disagree, 7=Strongly Agree).
+        Below are 8 statements with which you may agree or disagree. Using the scale below, indicate your agreement with each item.
       </p>
-      {/* Step 3: Connect the handler to the form */}
+      
       <form className="journal-form" onSubmit={handleSubmit}>
         {questions.map((q, index) => (
           <LikertQuestion

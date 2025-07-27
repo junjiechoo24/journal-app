@@ -5,13 +5,19 @@ import ScaleQuestion from './ScaleQuestion'
 
 function DfiPage() {
   // --- Change 1: Rename the state variables to match your database ---
-  const [satisfaction, setSatisfaction] = useState(5);
-  const [meaning, setMeaning] = useState(5);         // Was 'worthwhile'
-  const [connection, setConnection] = useState(5);
-  const [authenticity, setAuthenticity] = useState(5); // Was 'alignment'
+  const [satisfaction, setSatisfaction] = useState(null);
+  const [meaning, setMeaning] = useState(null);         // Was 'worthwhile'
+  const [connection, setConnection] = useState(null);
+  const [authenticity, setAuthenticity] = useState(null); // Was 'alignment'
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Check if any value is still null
+    if (satisfaction === null || meaning === null || connection === null || authenticity === null) {
+        alert('Please answer all questions before saving.');
+        return; // Stop the function here
+    }
 
     const { data, error } = await supabase
       .from('dfi_entries')

@@ -1,6 +1,7 @@
 /* src/App.css */
 
-/* Keep the main container centered */
+/* --- 1. Global Layout --- */
+/* These rules control the main centered container for your app. */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -8,48 +9,12 @@
   text-align: center;
 }
 
-/* We can add a simple style for our future form */
-.journal-form {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* This will space out our text boxes nicely */
-  text-align: left; /* Align text inside the form to the left */
-}
 
-.journal-form label {
-  font-weight: 500;
-  font-size: 1.1em;
-}
-
-/* src/App.css */
-
-.journal-form textarea {
-  width: 100%;
-  min-height: 100px;
-  padding: 0.8em 1em;
-  border-radius: 8px;
-  border: 1px solid #dcdcdc; /* A soft grey border */
-  font-size: 1em;
-  font-family: inherit;
-  
-  /* --- NEW COLORS --- */
-  background-color: #f9f9f9; /* A very light grey, almost white */
-  color: #213547; /* The default dark text color */
-  
-  transition: border-color 0.25s;
-}
-
-.journal-form textarea:focus {
-  outline: 4px auto -webkit-focus-ring-color;
-  border-color: #646cff;
-}
-
-/* src/App.css */
-
+/* --- 2. Navigation --- */
+/* These rules style the main navigation bar and its contents. */
 .main-nav {
   display: flex;
-  justify-content: center;
+  align-items: center; /* Vertically align items */
   gap: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
@@ -65,6 +30,59 @@
   color: #747bff;
 }
 
+/* src/App.css */
+
+.logout-button {
+  margin-left: auto; /* This pushes the button to the far right */
+  
+  /* --- NEW LIGHT-MODE STYLES --- */
+  border-radius: 8px;
+  border: 1px solid #dcdcdc; /* A soft grey border */
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9; /* The same light grey as our inputs */
+  color: #213547; /* The default dark text color */
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.logout-button:hover {
+  border-color: #646cff;
+}
+
+
+/* --- 3. Forms & Inputs --- */
+/* These rules style your journal form, login inputs, and textareas. */
+.journal-form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* This will space out your text boxes nicely */
+  text-align: left; /* Align text inside the form to the left */
+}
+
+.journal-form label {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+/* Styles for the large text areas in the journal form */
+.journal-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 1em;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  color: #213547;
+  transition: border-color 0.25s;
+}
+
+/* Style for the smaller inputs in the auth form */
 .auth-input {
   width: 100%;
   padding: 0.8em 1em;
@@ -74,4 +92,11 @@
   font-family: inherit;
   background-color: #f9f9f9;
   color: #213547;
+}
+
+/* Focus styles for both textareas and inputs */
+.journal-form textarea:focus,
+.auth-input:focus {
+  outline: 4px auto -webkit-focus-ring-color;
+  border-color: #646cff;
 }

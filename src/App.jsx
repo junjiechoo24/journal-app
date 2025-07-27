@@ -1,21 +1,28 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { useAuth } from './AuthContext' // Import our new hook
-import Auth from './Auth' // Import the login page
+import { useAuth } from './AuthContext'
+import { supabase } from './supabaseClient' // Import supabase
+import Auth from './Auth'
 import JournalForm from './JournalForm'
 import DfiPage from './DfiPage'
 import FlourishingScalePage from './FlourishingScalePage'
 import './App.css'
 
 function App() {
-  const { session } = useAuth(); // Get the session info
+  const { session } = useAuth();
 
-  // The Gatekeeper logic
-  if (!session) {
-    return <Auth />; // If no session, show the login page
+  // The function to handle logging out
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut()
+    if (error) {
+      console.error('Error logging out:', error)
+    }
   }
 
-  // If there IS a session, show the main app
+  if (!session) {
+    return <Auth />;
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -23,6 +30,11 @@ function App() {
           <Link to="/">Journal Entry</Link>
           <Link to="/daily-questions">Daily Questions</Link>
           <Link to="/weekly-flourishing">Weekly Flourishing</Link>
+          
+          {/* The new button with its onClick handler */}
+          <button className="logout-button" onClick={handleLogout}>
+            Log Out
+          </button>
         </nav>
 
         <main>
