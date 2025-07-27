@@ -45,4 +45,3 @@ This project is built with a modern, secure, and scalable full-stack architectur
 *   The application saves qualitative (journal text) and quantitative (scale scores) data to a decoupled, relational database schema.
 *   The data is designed to be analyzed in a separate environment (e.g., a Python Jupyter Notebook) to explore the relationship between the daily intervention and the flourishing outcomes over time.
 
----
