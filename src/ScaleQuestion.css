@@ -1,0 +1,55 @@
+/* src/ScaleQuestion.css */
+
+.scale-question {
+  margin-bottom: 2rem; /* Space between each question */
+  text-align: left;
+}
+
+.scale-question label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.scale-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+  justify-content: space-between; /* Distributes space evenly */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.scale-buttons button {
+  /* Make the buttons circular and evenly sized */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* This makes them circles */
+  
+  /* Reset some default button styles */
+  border: 1px solid #dcdcdc;
+  background-color: #f9f9f9;
+  color: #213547;
+  cursor: pointer;
+  
+  /* Font and positioning */
+  font-size: 1em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* Style for when you hover over a button */
+.scale-buttons button:hover {
+  border-color: #747bff;
+  background-color: #e6e6ff;
+}
+
+/* Style for a 'selected' button (we will add this with JavaScript later) */
+.scale-buttons button.selected {
+  background-color: #646cff;
+  border-color: #646cff;
+  color: white;
+}

@@ -1,0 +1,55 @@
+/* src/LikertQuestion.css */
+.likert-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #3a3a3a;
+  gap: 1rem;
+}
+
+.likert-statement {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1; /* Allows the text to take up available space */
+}
+
+.likert-statement .question-number {
+  font-weight: 700;
+}
+
+.likert-statement p {
+  margin: 0;
+}
+
+.likert-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0; /* Prevents buttons from shrinking */
+}
+
+.likert-buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px; /* Squares instead of circles */
+  /* ... other button styles similar to ScaleQuestion ... */
+  border: 1px solid #dcdcdc;
+  background-color: #f9f9f9;
+  color: #213547;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.likert-buttons button:hover {
+  border-color: #747bff;
+  background-color: #e6e6ff;
+}
+
+.likert-buttons button.selected {
+  background-color: #646cff;
+  border-color: #646cff;
+  color: white;
+}
